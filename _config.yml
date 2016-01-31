@@ -1,9 +1,9 @@
 # Site settings
-title: Jekyll-Uno
-description: 'Jekyll-Uno - a minimal, responsive theme for Jekyll'
-url: 'http://joshgerdes.com/jekyll-uno' 
-baseurl: '/jekyll-uno/'
-# google_analytics: 'UA-XXXXXX-X'
+title: Josh Gerdes
+description: 'Founder of Lost Leaf Studio, developer, consultant, cyclist, soccer fan, nature enthusiast and lover of beer.'
+url: 'http://joshgerdes.com' 
+baseurl: '/'
+google_analytics: 'UA-501066-1'
 
 author:
   name: 'Josh Gerdes'
@@ -25,5 +25,4 @@ kramdown:
   # do not replace newlines by <br>s
   hard_wrap: false
 
-gems: ['jekyll-paginate']
-exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'screenshot.png']
+exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'src']
