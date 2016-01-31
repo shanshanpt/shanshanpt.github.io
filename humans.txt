@@ -1,14 +1,13 @@
 /* TEAM */
-Developer & Designer: Josh Gerdes
-Twitter: @joshgerdes
-Site: http://joshgerdes.com
-Location: Minneapolis, MN, USA
+Developer & Designer: shanshanpt
+Site: http://shanshanpt.github.io/
+Location: BeiJing, CHINA
 						
 /* THANKS */
-Name: Laura Gerdes
+Name: joshgerdes
 
 /* SITE */
-Last update: 2015/01/09
+Last update: 2016/01/31
 Standards: HTML5, CSS3
 Components: Jekyll
-Software: Sublime Text, Photoshop
+Software: Emacs

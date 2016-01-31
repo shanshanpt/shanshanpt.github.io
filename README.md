@@ -1,1 +1,2 @@
-Source files for [joshgerdes.com](http://joshgerdes.com)
+Clone from [joshgerdes.com](http://joshgerdes.com)
+Thanks very much!

@@ -1,16 +1,14 @@
 # Site settings
-title: Josh Gerdes
-description: 'Founder of Lost Leaf Studio, developer, consultant, cyclist, soccer fan, nature enthusiast and lover of beer.'
-url: 'http://joshgerdes.com' 
+title: shanshanpt
+description: '追求技术的逗比小码农'
+url: 'http://shanshanpt.github.io/'
 baseurl: '/'
 google_analytics: 'UA-501066-1'
 
 author:
-  name: 'Josh Gerdes'
-  email: josh@joshgerdes.com
-  twitter_username: joshgerdes
-  github_username:  joshgerdes
-  linkedin_username:  joshgerdes
+  name: 'Tao Peng'
+  email: dev.pengtao@gmail.com
+  github_username:  shanshanpt
 
 # Build settings
 destination: _site
