@@ -1,26 +1,50 @@
-# Site settings
-title: shanshanpt
-description: '追求技术的逗比小码农'
-url: 'http://shanshanpt.github.io/'
-baseurl: '/'
-google_analytics: 'UA-501066-1'
-
-author:
-  name: 'Tao Peng'
-  email: dev.pengtao@gmail.com
-  github_username:  shanshanpt
-
-# Build settings
-destination: _site
+permalink: /:year/:month/:day/:title.html
 paginate: 10
-permalink: /:year/:title/
-markdown: kramdown
-highlighter: pygments
+markdown: redcarpet
 
-kramdown:
-  # use Github Flavored Markdown
-  input: GFM
-  # do not replace newlines by <br>s
-  hard_wrap: false
+gems: [jekyll-paginate]
 
-exclude: ['README.md', 'Gemfile', 'Gemfile.lock', 'src']
+# 作者信息
+author: 
+  name: Tao Peng
+  email: dev.pengtao@gmail.com
+  link: http://shanshanpt.github.io
+  #weibo:
+  github: http://github.com/shanshanpt
+  #music:
+  #linkedin:
+  csdn: http://blog.csdn.net/shanshanpt
+
+# 站点信息
+title: shanshanpt
+description: 追求技术的逗比小码农
+url: http://shanshanpt.github.io
+rss_url: /pages/atom.xml
+
+# gavatar头像及Favicon
+gavatar: /public/img/tux.jpg
+favicon: /public/img/tux.jpg
+
+# google analytics 设置
+ga:
+  id: UA-54262064-1 
+  url: shanshanpt.github.io
+
+# disqus 设置
+disqus:
+  shortname: shanshanpt
+
+# 主题设置，自动激活某个标签
+active: 技术
+
+# 首页除了最新文章外显示分类
+cates: 
+  - C|C++
+  - 算法
+
+# 中文本地化
+locals:
+  tags: 标签
+  about: 关于
+  newest: 最新文章
+  archive: 归档

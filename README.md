@@ -1,2 +1,2 @@
-Clone from [joshgerdes.com](http://joshgerdes.com)
-Thanks very much!
+感谢painterlin提供的模板!
+http://painterlin.com/

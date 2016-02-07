@@ -1,0 +1,79 @@
+<div class="col-md-3 col-lg-3 col-sm-13 col-xs-13 aside visible-md visible-lg">
+  <div class="row">
+    <!-- 显示最左侧边栏目 -->
+    <div class="col-md-2 col-xs-2 aside1">
+      <a class="pjaxlink" href="/"><img src="{{ site.gavatar }}" class="img-ronuded avatar" style="border-width:0px; border-color:#000"></a>
+      <br><br><br>
+      <ul class="nav nav-pills nav-stacked">
+        <!-- 显示分类目录 -->
+        {% for category in site.categories %}
+          <li><a href="#{{ category | first }}" data-toggle="tab">{{ category[0] }}</a></li>
+        {% endfor %}
+        <!-- 标签 -->
+        <li><a href="#tags" data-toggle="tab">{{ site.locals.tags }}</a></li>
+        <span>---</span>
+        <!-- 归档 -->
+        <li id="ARC"><a class="pjaxlink" href="/pages/archive.html">{{ site.locals.archive }}</a></li>
+        <!-- 关于 -->
+        <li id="ABOUT"><a class="pjaxlink" href="/pages/about.html">{{ site.locals.about }}</a></li>
+      </ul>
+      <!-- 显示最左侧边栏下面小按钮图标 -->
+      <div class="aside1_bottom">
+        <table class="table table-condensed">
+          <tr>
+            <!-- github & email -->
+            <td><a href="{{ site.author.github }}" target="_blank"><i class="fa fa-github fa-lg" style="color:#fff;"></i></a></td>
+            <td><a href="mailto:{{ site.author.email }}"><i class="fa fa-envelope-o fa-lg" style="color:#fff;"></i></a></td>
+          </tr>
+          <tr>
+            <!-- csdn & rss -->
+            <td><a href="{{ site.author.csdn }}" target="_blank"><i class="fa fa-plus fa-lg" style="color:#fff;"></i></a></td>
+            <td><a href="/pages/atom.xml" target="_blank"><i class="fa fa-rss fa-lg" style="color:#fff;"></i></a></td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!-- 显示所有分类包含的文章 -->
+    <div class="col-md-10 col-xs-10 aside2">
+      <div class="row">
+        <div class="tab-content"> 
+          {% for category in site.categories %} 
+            <div class="tab-pane" id="{{ category[0] }}">
+              <div class="list-group">
+                {% for post in category[1] %}
+                  <a href="{{ post.url }}" class="list-group-item-lay pjaxlink">{{post.title}}</a>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+
+          <div class="tab-pane" id="tags">
+            <div class="panel-group" id="accordion">
+              {% for tag in site.tags %}
+                <div class="panel panel-info">
+                  <div class="panel-heading">
+                    <h4 class="panel-title">
+                      <a data-toggle="collapse" data-toggle="collapse" data-parent="#accordion" href="#{{ tag[0] }}">{{ tag[0] }}</a>
+                      <span class="badge pull-right">{{ tag[1].size }}</span>
+                    </h4>
+                  </div>
+                  <div id="{{ tag[0] }}" class="panel-collapse collapse">
+                    {% for post in tag[1] %}
+                      <a  href='{{ post.url }}' class="list-group-item pjaxlink">
+                        {{post.title}}
+                      </a>
+                    {% endfor %}
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+          </div>
+        </div>
+        <!-- copyright 信息 -->
+        <div style="position:fixed;margin-left:35px;bottom:0px;color:#fff">
+          <span class="footer__copyright">&copy; {{ site.time | date: '%Y' }} {{ site.author.name }}. All rights reserved.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
