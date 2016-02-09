@@ -131,7 +131,13 @@ Jekyll会给你一个指定的目录结构,同时根据目录结构生成相应�
 
 上面的所有字段都可以在我们的html文件中直接调用,例如 \{\{ paginator.page \}\}代表当前页数!这样方便的了我们Coding.
 
-了解了目录结构和一些隐藏的全局变量,我们的变成会变得很容易,至于具体的使用方法,可以去官网查看!
+了解了目录结构和一些隐藏的全局变量,我们的变成会变得很容易,至于具体的使用方法,可以去官网查看!<br><br>
+
+
+参考:<br>
+<a href="http://jekyllrb.com/docs/home/">Jekyll官网</a><br>
+<a href="http://github.tiankonguse.com/blog/2014/11/10/jekyll-study/">Jekyll 语法简单笔记</a>
+
 
 
 
