@@ -51,5 +51,5 @@ document.body.removeChild(downloadLink);
 ![1](/public/img/grocery/js/bom.png  "bom")<br>
 
 
-###3. 参考<br>
+###3. 参考博客<br>
 <a href="http://blog.fk68.net/post/3783e_707fdf2" target="_blank">Web前端js导出csv文件使用a链接标签直拉下载文件保存数据文本换行符的URI不用base64编码</a>
