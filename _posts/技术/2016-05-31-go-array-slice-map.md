@@ -189,8 +189,7 @@ for key, value := range dict {
 ###4. Set
 
 Set可以通过Map来实现, 具体的代码见:
-
-
+<a href="http://shanshanpt.github.io/2016/05/31/go-set.html" target="_blank">Go Set</a>
 
 
 
