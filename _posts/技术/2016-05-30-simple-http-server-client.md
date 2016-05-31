@@ -2,7 +2,7 @@
 layout: post
 title: Go语言最简单的tcp server/client
 category: 技术
-tags: go
+tags: GO
 keywords:
 description:
 ---
