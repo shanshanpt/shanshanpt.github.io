@@ -215,7 +215,23 @@ function pjax(options) {
     fire('pjax:complete', [xhr, textStatus, options])
 
     fire('pjax:end', [xhr, options])
+
+    pajx_loadDuodsuo()
   }
+
+  /**
+   * pjax后需要回调函数.加载多说
+   */
+    pajx_loadDuodsuo = function() {
+  	    var dus=$(".ds-thread");
+  	    if($(dus).length==1){
+  		    var el = document.createElement('div');
+  		    el.setAttribute('data-thread-key',$(dus).attr("data-thread-key"));//必选参数
+  		    el.setAttribute('data-url',$(dus).attr("data-url"));
+  		    DUOSHUO.EmbedThread(el);
+  		    $(dus).html(el);
+  	    }
+    }
 
   options.error = function(xhr, textStatus, errorThrown) {
     var container = extractContainer("", xhr, options)
