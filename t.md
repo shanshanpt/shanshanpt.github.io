@@ -11,6 +11,7 @@ ubuntu安装tera(单机和集群)
 
 2. tera提供了一个build.sh脚本，执行sh build.sh，就会检查列表中的包，如果没有会进行安装。其中存在一些没有检查的包，遇到的包括以下几种：
   1. 提示zlib.h：没有那个文件或目录：sudo apt-get install zlib1g-dev
+
   2. 编译和安装openssl时出错，POD document had syntax errors：
   ```
   smime.pod around line 285： Expected text after =item， not a number
@@ -18,6 +19,7 @@ ubuntu安装tera(单机和集群)
   POD document had syntax errors at /usr/bin/pod2man line 71.
   ```
   解决方法：删除 pod2man文件 sudo rm /usr/bin/pod2man
+
   3. ld时候提示没有libcrypto错误：链接过程中需要以来crypto包，这个包是在openssl中，理论
   上安装里openssl就会有这个包，但是有些时候还是会出现莫名的问题。如果此时需要重新安装
   openssl，可以按照一些步骤：
@@ -42,20 +44,22 @@ ubuntu安装tera(单机和集群)
   sudo apt-get install libncurses5-dev
   
 3. 等待编译结束 & 单机体验
+
   将编译生成的tera_main和teracli文件copy到example/onebox/bin目录下，进入目录执行：sh launch_tera.sh。然后执行./teracli进终端交互。Have fun！
   详见：https://github.com/baidu/tera/blob/master/doc/onebox-cn.md
 
 
 ## 2. 安装集群
-集群安装会稍微麻烦一点，主要是要安装zk和hdfs这些依赖，加上有一些配置，比较容易弄错。
-参考：https://github.com/baidu/tera/blob/master/doc/cluster_setup.md
+集群安装会稍微麻烦一点，主要是要安装zk和hdfs这些依赖，加上有一些配置，比较容易弄错。参考：https://github.com/baidu/tera/blob/master/doc/cluster_setup.md
 
 1. 安装3个节点集群，我使用的是3个ubuntu 16.04的虚拟机(virtualbox)，注意virtual的网络连接方式设置为“桥接网卡”，这样的设置使得三台虚拟机都有局域网内自己的IP。同时需要注意，在一些公司，内部网络是安全加密网络，virtualbox的“桥接”模式使用不了，那么，唔，回家装吧:)。
 
 2. zookeeper使用3.4.6版本，hadoop使用了2.7.2版本。注意，在3台机子上都需要安装zk和hdfs，但是tera只需要一个机子编译了就OK，后面的使用只需要binary可执行文件，所以将build好的可执行文件copy到另外两个机器就可以了。
 
 3. 安装zookeeper
+
   1. 首先下载一个3.4.6的安装包：http://www.apache.org/dyn/closer.cgi/zookeeper/
+
   2. 解压后放在home目录下(自己喜欢的目录都可以)，
      cd ~/zookeeper-3.4.6/conf/,
      cp zoo_sample.cfg zoo.cfg，
@@ -83,6 +87,7 @@ ubuntu安装tera(单机和集群)
   3. 在上面的dataDir目录下增加myid文件，代表当前机器的id，zk需要使用。如果当前机器编号是1(这个自己决定就行), 那么echo "1" > /home/xx/zookeeperdir/data/myid 。（三个机器都需要配置）
 
   4. OK，至此zk的配置完成，下面需要创建tera节点。
+    ```
     > 运行zk：./bin/zkServer.sh start 
  	注意：需要将三台机器全部启动，只要有一台没有启动，那么其他的都会等待。
 	执行命令“./bin/zkServer.sh status”，临时报错：
@@ -99,11 +104,14 @@ ubuntu安装tera(单机和集群)
 	create /zk/ts ts
 	```
 	现在“ls /zk”会看到创建好的三个子节点。这一步只需要在一个zk机器上执行，然后自动会同步到其他机器。
+    ```
 
 4. 安装Hadoop
+
   下载地址：http://www.apache.org/dyn/closer.cgi/hadoop/common ，本机下载的是2.7.2版本。
 
   1. 解压源码包到home目录下(选择自己喜欢的目录)，包名太长了，我改成了：```mv hadoop-2.7.2 hadoop```.
+
   2. 配置：cd hadoop/etc/hadoop目录
   ```
   > 配置hadoop-env.sh
@@ -168,18 +176,18 @@ ubuntu安装tera(单机和集群)
   4. 配置hadoop一些路径，这里配置的比较多，参考如下，写在/etc/profile文件中。
   ```
   # zk的一些配置
-  export ZOOKEEPER_HOME=/home/xx/zookeeper-3.4.6
+  export ZOOKEEPER_HOME=/home/xx/zookeeper-3.4.6    # 这是你的zk路径
   PATH=$ZOOKEEPER_HOME/bin:$PATH
   export PATH
 
   # java一些配置
-  export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
+  export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64  # 这是你的jdk路径
   export JRE_HOME=$JAVA_HOME/jre
   export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
   export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH
 
   # hadoop，hdfs一些配置
-  export HADOOP_HOME=/home/xx/hadoop
+  export HADOOP_HOME=/home/xx/hadoop     # 这是你的hadoop路径
   export HADOOP_PREFIX=$HADOOP_HOME
   export PATH=$PATH:$HADOOP_HOME/bin
   export PATH=$PATH:$HADOOP_HOME/sbin
@@ -213,7 +221,7 @@ ubuntu安装tera(单机和集群)
   至此，hdfs配置完成。
 
 5. 启动tera集群
-  1. 建立tera执行目录，创建在home目录就好，例如创建为：```mkdir tera_root```，进入目录，创建子目录：```mkdir log；mkdir data```，同时将之前一台机器上build文件copy到3台机器的tera_root目录下。copy之前生成的build目录下的bin和conf目录。
+  1. 建立tera执行目录，创建在home目录就好，例如创建为：```mkdir tera_root```，进入目录，创建子目录：```mkdir log；mkdir data```，同时将之前一台机器上build文件copy到3台机器的tera_root目录下。copy之前生成的build目录下的bin和conf目录到tera_root。
   
   2. 修改conf目录下配置文件tera.flag，配置如下：
   ```
