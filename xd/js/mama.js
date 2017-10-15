@@ -33,8 +33,8 @@
 		
 		
 		
-		$(document).ready( init )
-		
+		$(document).ready( init );
+
 		function init()
 		{
 			w = $(window);
