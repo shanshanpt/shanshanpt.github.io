@@ -15,37 +15,31 @@
     <script type="text/javascript" src="js/functions.js"></script>
 </head>
 
-<body style="background-image:url(zpgy2.png); background-repeat:no-repeat; background-color:#DEB0FE">
+<body style="background-image:url(2222.titf); background-repeat:no-repeat; background-color:#DEB0FE">
 	<!-- 背景音乐自动播放 -->
-	<!-- <EMBED SRC="pgydyd.mp3" autostart=true hidden=true loop=true></EMBED> -->
-	<audio id="music" src="pgydyd.mp3" type="audio/mpeg" preload="auto" autoplay="true"></audio>
-
-
+	<EMBED SRC="pgydyd.mp3" autostart=true hidden=true loop=true></EMBED>
 	<div id="mainDiv">
 		<div id="content">
 			<div id="code">
-				<span> 致“天生一队”所有小伙伴：</span><br /> <br />
+				<span>大妈:) </span><br /> <br />
 				
-				<span> 悄悄是别离的笙箫，离别、不舍。 </span><br />
-				<span> 曾经，自己是多么得厌恶这些“无聊浪费时间的活动”。</span><br />
-				<span> 只是，不曾想到，我会是这样的幸运儿， </span><br />
-				<span> 幸运，遇到的是你们， </span><br />
-				<span> 幸运，你们对我无微不至的关爱， </span><br />
-				<span> 幸运，遇到一群志同道合的朋友， </span><br />
-				<span> 幸运，那种种的感动将会是我生命中最宝贵的财富，  </span><br />
+				<span> sorry... </span><br />
+				<span> 此时此刻不知道该说什么了，对不起... </span><br />
+				<span> 或许连我自己都没有想到，我们会发展成这样子... </span><br />
+				<span> 我知道说的太多没用任何作用... </span><br />
+				<span> 只是希望你别难受，可以生气，可以骂我打我... </span><br />
+				<span> 我不知道，最后竟变成了真感情... </span><br />
+				<span> 这些天真的很痛苦，很痛苦，怕说出来，又，怕不说出来... </span><br />
+				<span> 只希望你能再给我一次机会，好吗...  </span><br /><br />
+				<span> 真的希望你永远幸福，真的	... </span> <br /> <br />
 
-				<span> 虽然终有一天我们会像蒲公英一样，去到属于自己的地方，  </span><br />
-				<span> 但我希望，这里永远会是我们记忆的港湾，  </span><br />
-				<span> 当我想你们，我还能过来看看，静静地听着我们的约定，  </span><br />
-				<span> 不管未来有多遥远，成长的路上有你有我，不管相逢在什么时候，我们是永远的朋友。  </span><br /> <br />
-
-				<span> 永远爱你们的 -- 坑  </span>				
+				<span> 小鬼，2017-12-07 </span>
 			</div>
 			<div id="loveHeart">
 				<canvas id="garden"></canvas>
 				<div id="words">
 					<div id="messages">
-						“天生一队”相遇、相识、相知、相爱、相守
+						纪念相识
 						<div id="elapseClock"></div>
 					</div>
 					<!-- <div id="loveu">
@@ -60,14 +54,11 @@
 	<script type="text/javascript" src="snow.js"></script> -->
 
 	<script type="text/javascript">
-		var myAuto = document.getElementById('music');
-		myAuto.play();
-
 		var offsetX = $("#loveHeart").width() / 2;
 		var offsetY = $("#loveHeart").height() / 2 - 55;
 		var together = new Date();
-		together.setFullYear(2017, 9, 9);
-		together.setHours(10);
+		together.setFullYear(2017, 10, 30);
+		together.setHours(0);
 		together.setMinutes(0);
 		together.setSeconds(0);
 		together.setMilliseconds(0);
@@ -87,7 +78,7 @@
 			timeElapse(together);
 			setInterval(function () {
 				timeElapse(together);
-			}, 1000);
+			}, 800);
 
 			adjustCodePosition();
 			$("#code").typewriter();
